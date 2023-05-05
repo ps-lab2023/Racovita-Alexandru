@@ -28,4 +28,17 @@ public class Application {
 
     @Column(nullable = false)
     private LocalDate applicationDate;
+
+
+    // Add the following fields for CV file and content type
+    @Lob
+    @Column(nullable = true, columnDefinition = "varchar(3000)")
+    private String cvpath;
+
+    @Column(nullable = true)
+    private String cvContentType;
+
+    public void setCvPath(String path) {
+        this.cvpath = path;
+    }
 }

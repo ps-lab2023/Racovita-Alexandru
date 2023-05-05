@@ -1,0 +1,24 @@
+<div class="jobs-container">
+  <h2>Job Listings</h2>
+  <div class="search-container">
+    <input [(ngModel)]="searchText" placeholder="Search by job title" />
+  </div>
+  <div class="sort-container">
+    Sort by:
+    <button (click)="setSort('title')">Title</button>
+    <button (click)="setSort('company')">Company</button>
+  </div>
+
+  <div class="jobs-list">
+    <div *ngFor="let job of sortedJobs()" class="job-card">
+      <h3>{{ job.title }}</h3>
+      <p>{{ job.description }}</p>
+      <p>Company: {{ job.company?.name }}</p>
+      <p>Category: {{ job.category?.name }}</p>
+      <div class="job-card-buttons">
+    <!--    <button *ngIf="job.id" (click)="applyToJob(job.id!)" class="apply-button">Apply</button>
+        <button *ngIf="job.id" (click)="viewJobDetails(job.id!)" class="details-button">View Details</button>-->
+      </div>
+    </div>
+  </div>
+</div>

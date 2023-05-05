@@ -1,0 +1,75 @@
+.edit-job-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+h2 {
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(102, 175, 233, 0.25);
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: #fff;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.submit-button:disabled {
+  background-color: #007bff;
+  border-color: #007bff;
+  opacity: 0.65;
+  cursor: not-allowed;
+}

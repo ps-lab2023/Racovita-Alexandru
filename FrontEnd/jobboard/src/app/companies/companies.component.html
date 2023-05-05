@@ -1,0 +1,15 @@
+<div class="companies-container">
+  <h2>Companies</h2>
+
+  <div class="search-bar">
+    <input [(ngModel)]="searchText" placeholder="Search for a company..." />
+    <button (click)="onSort()">Sort</button>
+  </div>
+
+  <div class="companies-list">
+    <div *ngFor="let company of sortedCompanies()" class="company-card">
+      <h3>{{ company.name }}</h3>
+      <p>{{ company.address }}</p>
+    </div>
+  </div>
+</div>

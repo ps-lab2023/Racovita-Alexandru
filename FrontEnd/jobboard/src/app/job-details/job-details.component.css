@@ -1,0 +1,66 @@
+.job-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.job-description {
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.job-details {
+  margin-bottom: 2rem;
+  color: #333333;
+}
+
+.apply-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cv-label {
+  margin-right: 1rem;
+}
+
+.cv-input {
+  margin-right: 1rem;
+}
+
+.apply-button {
+  background-color: #5cb85c;
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.apply-button:hover {
+  background-color: #449d44;
+}
+
+.back-button {
+  background-color: #f7f7f7;
+  border: 1px solid #cccccc;
+  color: #333333;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #e6e6e6;
+}

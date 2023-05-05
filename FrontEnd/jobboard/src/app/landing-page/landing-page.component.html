@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Board</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .header {
+      background-color: #007bff;
+      padding: 1.5rem;
+      color: #fff;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+
+    .header h4 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin-top: 0;
+    }
+
+    .main-content {
+      padding: 2rem;
+    }
+
+    .call-to-action {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .call-to-action h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .call-to-action p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <h1>Job Board</h1>
+  <h4>Find your dream job today</h4>
+</div>
+
+<div class="main-content">
+  <div class="call-to-action">
+    <h2>Ready to start your job search?</h2>
+    <p>Explore thousands of job listings from top companies</p>
+    <button type="button" class="btn btn-primary btn-lg" routerLink="/jobs-simple">Browse Jobs</button>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Login</h3>
+      <p>Already have an account? Log in to manage your applications and profile.</p>
+      <button type="button" class="btn btn-outline-primary" routerLink="/login">Login</button>
+    </div>
+    <div class="col-md-4">
+      <h3>Register</h3>
+      <p>Don't have an account yet? Register now to start applying for jobs.</p>
+      <button type="button" class="btn btn-outline-primary" routerLink="/register">Register</button>
+    </div>
+    <div class="col-md-4">
+      <h3>Companies</h3>
+      <p>Looking for a specific company? Browse our list of top employers.</p>
+      <button type="button" class="btn btn-outline-primary" routerLink="/companies">View Companies</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -18,4 +18,8 @@ public interface UserService {
 
     public User findByUsername(String username) ;
 
+    User findByUsernameAndPassword(String username, String password);
+
+    Long getCurrentUserId();
+    void setCurrentUserId(Long id);
 }

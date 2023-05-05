@@ -1,5 +1,6 @@
 package com.proiectps.JobBoard.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 @Table(name = "categories")
 public class Category {
     @Id
@@ -21,6 +24,6 @@ public class Category {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Job> jobs;
+ //   @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   // private List<Job> jobs;
 }

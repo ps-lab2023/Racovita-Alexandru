@@ -33,4 +33,8 @@ public class User {
     public enum Role {
         USER, ADMIN
     }
+    //isadmin
+    public boolean isAdmin() {
+        return role == Role.ADMIN;
+    }
 }
