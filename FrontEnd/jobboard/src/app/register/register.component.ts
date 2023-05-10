@@ -24,13 +24,14 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      recaptcha: [null, Validators.required],
     });
   }
 
   ngOnInit(): void {}
 
-  onRegister(): void {
+ /* onRegister(): void {
     console.log('onRegister called'); // Debugging: check if the function is called
     if (this.registerForm.valid) {
       console.log('Form is valid'); // Debugging: check if the form is valid
@@ -51,6 +52,27 @@ export class RegisterComponent implements OnInit {
       console.log('Form is invalid'); // Debugging: check if the form is invalid
     }
   }
-
+*/
+  onRegister(): void {
+    console.log('onRegister called');
+    if (this.registerForm.valid) {
+      console.log('Form is valid');
+      const { username, email, password, recaptcha } = this.registerForm.value;
+      this.user.username = username;
+      this.user.email = email;
+      this.user.password = password;
+      this.user.role = 'USER';
+      this.userService.register(this.user).subscribe(
+        () => {
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.error('Registration failed:', error);
+        }
+      );
+    } else {
+      console.log('Form is invalid');
+    }
+  }
 
 }

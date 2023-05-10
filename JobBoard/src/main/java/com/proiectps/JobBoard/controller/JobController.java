@@ -71,6 +71,11 @@ public class JobController {
     public boolean isAdmin(User user) {
         return user.getRole() == User.Role.ADMIN;
     }
+/*
+    @PostMapping("/bookmark/{userId}/{jobId}")
+    public ResponseEntity<?> bookmarkJob(@PathVariable Long userId, @PathVariable Long jobId) {
+        return ResponseEntity.ok(jobService.bookmarkJob(userId, jobId));
+    }
 
-    // Add additional endpoints here
+  */  // Add additional endpoints here
 }

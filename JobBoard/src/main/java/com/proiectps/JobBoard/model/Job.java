@@ -1,5 +1,6 @@
 package com.proiectps.JobBoard.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +10,9 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -38,4 +42,10 @@ public class Job {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    /* In the Job model
+    @JsonIgnore
+    @ManyToMany(mappedBy = "bookmarkedJobs")
+    private List<User> bookmarkedByUsers = new ArrayList<>();
+*/
 }

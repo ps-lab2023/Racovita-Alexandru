@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from '../models/job.model';
 import { JobService } from '../services/job.service';
-import {Company} from "../models/company.model";
+import { Company } from "../models/company.model";
 import { Router } from '@angular/router';
-import {UserService} from "../services/user.service";
+import { UserService } from "../services/user.service";
+import { WishListService } from '../services/wishlist.service';
+
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
@@ -14,7 +16,12 @@ export class JobsComponent implements OnInit {
   sortedBy: string = 'title';
   searchText = '';
   sortAscending = true;
-  constructor(private jobService: JobService, private router: Router, private userService: UserService) {}
+  constructor(
+    private jobService: JobService,
+    private router: Router,
+    private userService: UserService,
+    private wishlistService: WishListService
+  ) {}
 
   ngOnInit(): void {
     this.jobService.getJobs().subscribe((jobs) => {
@@ -60,6 +67,30 @@ export class JobsComponent implements OnInit {
   setSort(sortBy: string): void {
     this.sortAscending = this.sortedBy === sortBy ? !this.sortAscending : true;
     this.sortJobs(sortBy);
+  }
+  bookmarkJob(job: Job): void {
+    const userId = Number(localStorage.getItem("id")); // Get the user ID of the currently logged-in user
+
+    // Toggle the bookmarked state and update the backend accordingly
+    if (job.bookmarked) {
+      this.wishlistService.removeJobFromWishList(userId, job.id!).subscribe(
+        () => {
+          job.bookmarked = false;
+        },
+        (error) => {
+          console.error('Error removing job from wishlist:', error);
+        }
+      );
+    } else {
+      this.wishlistService.addJobToWishList(userId, job.id!).subscribe(
+        () => {
+          job.bookmarked = true;
+        },
+        (error) => {
+          console.error('Error adding job to wishlist:', error);
+        }
+      );
+    }
   }
 
 

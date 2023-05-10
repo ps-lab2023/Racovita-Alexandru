@@ -18,6 +18,15 @@ export class UserService {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     })
   }
+  /*
+  register(data: any, recaptchaResponse: string) {
+    const payload = { ...data, recaptchaResponse };
+
+    return this.http.post(this.apiUrl + "/register", payload, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    });
+  }
+*/
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl).pipe(
       catchError(this.handleError)

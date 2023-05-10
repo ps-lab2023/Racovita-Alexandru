@@ -68,3 +68,7 @@
   cursor: pointer;
   margin-top: 10px;
 }
+.bookmarked {
+  background-color: #007bff;
+  color: white;
+}

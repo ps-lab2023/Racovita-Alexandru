@@ -24,6 +24,7 @@
       <div class="job-card-buttons">
         <button *ngIf="job.id" (click)="applyToJob(job.id!)" class="apply-button">Apply</button>
         <button *ngIf="job.id" (click)="viewJobDetails(job.id!)" class="details-button">View Details</button>
+        <button (click)="bookmarkJob(job)" [ngClass]="{'bookmarked': job.bookmarked}">Bookmark</button>
       </div>
     </div>
   </div>

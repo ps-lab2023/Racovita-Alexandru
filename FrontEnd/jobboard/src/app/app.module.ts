@@ -18,7 +18,7 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobnoapplyComponent } from './jobnoapply/jobnoapply.component';
 import { JobsadminComponent } from './jobsadmin/jobsadmin.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
-
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 const routes: Routes = [
   // Add your routes here
 ];
@@ -46,6 +46,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
+    RecaptchaModule,
+    RecaptchaFormsModule,
     NgbModule,
   ],
   providers: [],

@@ -25,8 +25,12 @@
         required
       />
     </div>
+    <div class="form-group">
+      <re-captcha formControlName="recaptcha" siteKey="6Ld4fO8lAAAAALWi04ukDjJbXMRIwjAICu9ayqCz"></re-captcha>
+    </div>
 
-    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+    <button type="submit" [disabled]="!registerForm.valid || registerForm.get('recaptcha')?.invalid">Register</button>
     <a routerLink="/login" class="login-link">Already have an account? Login</a>
   </form>
+
 </div>

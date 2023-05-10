@@ -49,7 +49,9 @@ export class JobService {
       catchError(this.handleError)
     );
   }
-
+  bookmarkJob(userId: number, jobId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/bookmark/${userId}/${jobId}`, {});
+  }
   deleteJob(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
       catchError(this.handleError)

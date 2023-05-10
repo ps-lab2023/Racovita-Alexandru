@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,7 +37,22 @@ public class User {
         USER, ADMIN
     }
     //isadmin
+
     public boolean isAdmin() {
         return role == Role.ADMIN;
     }
+    /*
+    @ManyToMany
+    @JoinTable(
+            name = "user_bookmarked_jobs",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "job_id")
+    )
+    private List<Job> bookmarkedJobs = new ArrayList<>();
+*/
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private WishList wishList;
+
 }
+
