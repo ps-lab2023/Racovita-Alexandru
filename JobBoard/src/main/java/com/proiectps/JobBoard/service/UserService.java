@@ -22,4 +22,8 @@ public interface UserService {
 
     Long getCurrentUserId();
     void setCurrentUserId(Long id);
+    void setOnlineStatus(Long userId, boolean status);
+    public boolean isCurrentUserAdmin();
+
+    public User findByEmail(String email);
 }

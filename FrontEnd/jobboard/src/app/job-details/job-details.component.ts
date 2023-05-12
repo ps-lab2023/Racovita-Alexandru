@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Job } from '../models/job.model';
@@ -7,11 +7,15 @@ import { Router } from '@angular/router';
 import { UploadFileService } from '../services/upload-file.service';
 import { AuthserviceService } from '../services/authservice.service';
 import {toInteger} from "@ng-bootstrap/ng-bootstrap/util/util"; // Import the AuthService
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @Component({
   selector: 'app-job-details',
   templateUrl: './job-details.component.html',
   styleUrls: ['./job-details.component.css'],
+  encapsulation: ViewEncapsulation.None,  // Add this line
 })
 export class JobDetailsComponent implements OnInit {
   job: Job | null = null;

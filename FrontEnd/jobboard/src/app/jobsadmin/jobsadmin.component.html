@@ -1,5 +1,8 @@
 <div class="jobs-container">
   <h2>Job Listings</h2>
+  <div class="admin-actions">
+    <button (click)="navigateToUserActivity()">View User Activity</button>
+  </div>
   <div class="search-container">
     <input [(ngModel)]="searchText" placeholder="Search by job title" />
   </div>

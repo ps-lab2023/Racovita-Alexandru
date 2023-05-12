@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
@@ -36,12 +36,34 @@ export class AuthserviceService {
 */
   public login(username:any, password:any): any
   {
+    /*
      return this.http.get('http://localhost:8081/api/users/findUser'+'?username='+username+'&password='+password);
+  */
+    sessionStorage.setItem('currentUser', username);
+    return this.http.post(this.apiUrl + "/login", { username, password });
+  }
+  isLoggedIn(): boolean {
+    return sessionStorage.getItem('currentUser') !== null;
   }
 
 
   logout() {
+    const userId = Number(localStorage.getItem("id")); // Get the user ID of the currently logged-in user
+    // Make the request to the backend to set the user's online status to false
+    this.http.put('http://localhost:8081/api/users/logout', {}, {
+      params: new HttpParams().set('userId', userId)
+    }).subscribe(
+      response => {
+        console.log('User successfully logged out in backend');
+      },
+      error => {
+        console.log('Error logging out user in backend', error);
+      }
+    );
+
+    // Remove the user from local storage to log user out
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('id');  // Also remove the user's id from local storage
     this.currentUserSubject.next(null);
   }
 

@@ -19,6 +19,13 @@ import { JobnoapplyComponent } from './jobnoapply/jobnoapply.component';
 import { JobsadminComponent } from './jobsadmin/jobsadmin.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
+import { NotificationComponent } from './notification/notification.component';
+import { UserActivityComponent } from './user-activity/user-activity.component';
+import { NavbarComponent } from './navbar/navbar.component';
 const routes: Routes = [
   // Add your routes here
 ];
@@ -37,6 +44,9 @@ const routes: Routes = [
     JobnoapplyComponent,
     JobsadminComponent,
     EditJobComponent,
+    NotificationComponent,
+    UserActivityComponent,
+    NavbarComponent,
 
   ],
   imports: [
@@ -49,9 +59,16 @@ const routes: Routes = [
     RecaptchaModule,
     RecaptchaFormsModule,
     NgbModule,
+    ShareButtonsModule.withConfig({
+      debug: true
+    }),
+    ShareIconsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {
+
+}

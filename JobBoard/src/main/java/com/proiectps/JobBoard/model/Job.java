@@ -11,6 +11,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,13 @@ public class Job {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Column
+    private LocalDateTime postedAt;
+
+    @PrePersist
+    public void prePersist() {
+        postedAt = LocalDateTime.now();
+    }
     /* In the Job model
     @JsonIgnore
     @ManyToMany(mappedBy = "bookmarkedJobs")

@@ -8,6 +8,6 @@ export interface Job {
   description: string;
   company: Company;
   category: Category;
-  bookmarked?: boolean;
+
 
 }

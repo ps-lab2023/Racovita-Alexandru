@@ -59,5 +59,9 @@ public class JobServiceImpl implements JobService {
         userRepository.save(user);
         return jobRepository.save(job);
     }*/
+
+    public List<Job> getLatestJobs() {
+        return jobRepository.findTop10ByOrderByPostedAtDesc();
+    }
     // Implement additional business logic here
 }

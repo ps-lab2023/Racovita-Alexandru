@@ -5,6 +5,7 @@ import { Company } from "../models/company.model";
 import { Router } from '@angular/router';
 import { UserService } from "../services/user.service";
 import { WishListService } from '../services/wishlist.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-jobs',
@@ -68,31 +69,39 @@ export class JobsComponent implements OnInit {
     this.sortAscending = this.sortedBy === sortBy ? !this.sortAscending : true;
     this.sortJobs(sortBy);
   }
-  bookmarkJob(job: Job): void {
-    const userId = Number(localStorage.getItem("id")); // Get the user ID of the currently logged-in user
 
-    // Toggle the bookmarked state and update the backend accordingly
-    if (job.bookmarked) {
-      this.wishlistService.removeJobFromWishList(userId, job.id!).subscribe(
-        () => {
-          job.bookmarked = false;
-        },
-        (error) => {
-          console.error('Error removing job from wishlist:', error);
-        }
-      );
-    } else {
-      this.wishlistService.addJobToWishList(userId, job.id!).subscribe(
-        () => {
-          job.bookmarked = true;
-        },
-        (error) => {
-          console.error('Error adding job to wishlist:', error);
-        }
-      );
+  addToFavorites(jobId: number | null) {
+    const userId = Number(localStorage.getItem('id'));
+
+    if (userId) {
+      this.wishlistService.addJobToWishList(userId, jobId).subscribe();
+
+      }
+    }
+
+  removeFromFavorites(jobId: number) {
+    const userId = Number(localStorage.getItem('id'));
+    if (userId) {
+      this.wishlistService.removeJobFromWishList(userId, jobId)
     }
   }
 
+  bookmarkJob(jobId: number): void {
+    const userId = Number(localStorage.getItem('id'));
+    if (userId) {
+
+          this.addToFavorites(jobId);
+    }
+  }
+
+  checkIfFavoriteJob(id: number) {
+
+  }
+
+  isFavorite(id: number) {
+
+    return false;
+  }
 
   applyToJob(jobId: number): void {
     // Your apply to job logic here

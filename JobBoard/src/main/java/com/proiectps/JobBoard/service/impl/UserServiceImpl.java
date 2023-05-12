@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
     public void setCurrentUserId(Long id) {
         session.setAttribute("currentUserId", id);
     }
+    @Override
     public boolean isCurrentUserAdmin() {
         Long currentUserId = getCurrentUserId();
         if (currentUserId == null) {
@@ -63,6 +64,22 @@ public class UserServiceImpl implements UserService {
     public User findByUsernameAndPassword(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password);
     }
+    @Override
+    public void setOnlineStatus(Long userId, boolean status) {
+        System.out.println("setOnlineStatus called with userId: " + userId + " and status: " + status);
 
+        User user = findById(userId);
+        if (user != null) {
+            System.out.println("User found: " + user);
+            user.setOnline(status);
+            userRepository.save(user);
+        } else {
+            System.out.println("No user found with id: " + userId);
+        }
+    }
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
     // Implement additional business logic here
 }

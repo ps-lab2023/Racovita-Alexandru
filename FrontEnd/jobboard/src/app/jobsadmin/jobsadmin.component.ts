@@ -70,7 +70,9 @@ export class JobsadminComponent implements OnInit {
     this.sortedBy = sortBy;
     this.sortJobs();
   }
-
+  navigateToUserActivity(): void {
+    this.router.navigate(['/user-activity']);
+  }
   applyToJob(jobId: number): void {
     // Your apply to job logic here
     console.log('Applying to job', jobId);

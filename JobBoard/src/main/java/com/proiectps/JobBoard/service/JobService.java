@@ -2,9 +2,10 @@ package com.proiectps.JobBoard.service;
 
 import com.proiectps.JobBoard.model.Job;
 import com.proiectps.JobBoard.repository.JobRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface JobService {
 
     public List<Job> findAll();

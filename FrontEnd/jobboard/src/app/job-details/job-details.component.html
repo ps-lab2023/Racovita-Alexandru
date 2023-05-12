@@ -5,10 +5,14 @@
     <p><strong>Company:</strong> {{ job?.company?.name }}</p>
     <p><strong>Category:</strong> {{ job?.category?.name }}</p>
   </div>
+
   <div class="apply-container">
     <label for="cv-upload" class="cv-label">Upload your CV (PDF):</label>
     <input type="file" id="cv-upload" (change)="onFileSelected($event)" accept=".pdf" class="cv-input" />
     <button (click)="applyToJob()" [disabled]="!selectedFile" class="apply-button">Apply</button>
   </div>
   <button (click)="goBack()" class="back-button">Back to Job Listings</button>
+  <div class="share-buttons">
+    <share-buttons [include]="['facebook', 'whatsapp','copy']" [theme]="'circles-dark'" [showIcon]="true" [show]="3" [autoSetMeta]="false" [url]="'https://localhost:4200/jobs/' + job?.id"></share-buttons>
+  </div>
 </div>

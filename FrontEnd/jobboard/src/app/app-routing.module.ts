@@ -11,6 +11,7 @@ import {JobDetailsComponent} from "./job-details/job-details.component";
 import { JobnoapplyComponent} from "./jobnoapply/jobnoapply.component";
 import {JobsadminComponent} from "./jobsadmin/jobsadmin.component";
 import {EditJobComponent} from "./edit-job/edit-job.component";
+import { UserActivityComponent } from './user-activity/user-activity.component';
 
 const routes: Routes = [
   { path: 'jobs', component: JobsComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'jobs-admin', component: JobsadminComponent },
   { path: 'jobs/edit/:id', component: EditJobComponent},
   { path: '', component: LandingPageComponent },
+  {path: 'user-activity', component: UserActivityComponent},
 
 ];
 
